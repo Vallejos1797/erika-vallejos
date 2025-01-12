@@ -1,90 +1,113 @@
-
-/* home.component.css */
-.hero-section {
+/* Mejorar la línea divisoria */
+.color-divider {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #1a428a
-;
-  padding: 60px;
-  color: #fff;
+  height: 8px;
+  margin: 40px 0;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-.content {
-  max-width: 50%;
+.color-divider::before,
+.color-divider::after,
+.color-divider div {
+  content: '';
+  flex: 1;
+  height: 100%;
 }
 
-.candidate-name {
-  font-size: 6rem;
-  font-weight: bold;
+.color-divider::before {
+  background-color: #1a428a; /* Azul oscuro */
 }
 
-.candidate-title {
-  font-size: 2.5rem;
-  margin-top: -20px;
+.color-divider div {
+  background-color: #f9a01b; /* Naranja */
 }
 
-.slogan {
-  font-size: 1.8rem;
-  margin-top: 20px;
+.color-divider::after {
+  background-color: #ed1c24; /* Rojo */
 }
 
-.social-media a {
-  color: #fff;
-  font-size: 1.8rem;
-  margin-right: 15px;
+.color-divider::before,
+.color-divider::after,
+.color-divider div {
+  content: '';
+  flex: 1;
+  height: 100%;
 }
 
-.hero-image img {
-  max-width: 450px;
-  border-radius: 10px;
+.color-divider::before {
+  background-color: #1a428a; /* Azul oscuro */
 }
 
-.proposal-section {
-  padding: 60px;
-  text-align: center;
+.color-divider div {
+  background-color: #0085ca; /* Azul claro */
 }
 
-.proposals {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
+.color-divider::after {
+  background: linear-gradient(to right, #f9a01b 50%, #ed1c24 50%);
 }
 
-.proposal-card {
-  background-color: #f2f2f2;
+.mensaje-principal {
+  font-family: 'Arial Black', 'Impact', sans-serif; /* Fuente gruesa */
+  font-size: 3rem; /* Tamaño grande */
+  text-transform: uppercase; /* Todo en mayúsculas */
+  color: #1a428a; /* Azul oscuro */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+
+#inicio {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 0;
+}
+
+/* Título principal */
+.mensaje-principal {
+  font-family: 'Arial Black', 'Impact', sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #1a428a;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Caja de información con borde degradado */
+.info-box {
+  background-color: #fff;
+  border-radius: 15px;
+  border: 4px solid;
   padding: 20px;
-  width: 30%;
-  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-image: linear-gradient(to right, #1a428a, #0082ca, #231E44) 1;
+  color: #231E44;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.contact-section {
-  background-color: #009de0;
-  color: #fff;
-  padding: 60px;
-  text-align: center;
-}
+/* Responsividad */
+@media (max-width: 768px) {
+  #inicio {
+    text-align: center;
+  }
 
-.contact-section form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .info-box {
+    margin-top: 20px;
+  }
 }
-
-.contact-section input,
-.contact-section textarea {
-  width: 50%;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
+.carousel-item{
+  padding: 2rem;
 }
-
-.contact-section button {
-  background-color: #ff4d4d;
-  color: #fff;
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+.carousel-caption h5 {
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 10px;
+  font-size: 2rem;
 }
+
