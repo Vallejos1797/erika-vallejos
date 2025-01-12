@@ -1,0 +1,90 @@
+
+/* home.component.css */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a428a
+;
+  padding: 60px;
+  color: #fff;
+}
+
+.content {
+  max-width: 50%;
+}
+
+.candidate-name {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.candidate-title {
+  font-size: 2.5rem;
+  margin-top: -20px;
+}
+
+.slogan {
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.social-media a {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-right: 15px;
+}
+
+.hero-image img {
+  max-width: 450px;
+  border-radius: 10px;
+}
+
+.proposal-section {
+  padding: 60px;
+  text-align: center;
+}
+
+.proposals {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.proposal-card {
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.contact-section {
+  background-color: #009de0;
+  color: #fff;
+  padding: 60px;
+  text-align: center;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.contact-section button {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
