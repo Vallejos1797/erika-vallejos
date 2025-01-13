@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterLink} from '@angular/router';
-import {NgForOf} from '@angular/common';
+import {isPlatformBrowser, NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -12,43 +12,60 @@ import {NgForOf} from '@angular/common';
   ],
   templateUrl: './app.component.html',
   standalone: true,
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'erikaVallejos';
+export class AppComponent implements OnInit {
 
+  // Propuestas que se muestran en la sección de propuestas
   propuestas = [
-    { titulo: 'Educación de calidad', descripcion: 'Impulsar programas educativos inclusivos y de calidad.' },
-    { titulo: 'Salud para todos', descripcion: 'Garantizar el acceso a servicios de salud eficientes.' },
-    { titulo: 'Empleo digno', descripcion: 'Fomentar la creación de empleo digno y bien remunerado.' }
+    { titulo: 'Seguridad Ciudadana', descripcion: 'Fortalecer los cuerpos de seguridad y justicia para combatir la delincuencia organizada.', icono: '🔒' },
+    { titulo: 'Educación de Calidad', descripcion: 'Impulsar programas educativos modernos y accesibles.', icono: '📚' },
+    { titulo: 'Salud Eficiente', descripcion: 'Garantizar acceso a servicios de salud de calidad y mejorar la infraestructura sanitaria.', icono: '🏥' },
+    { titulo: 'Apoyo al Sector Agrícola', descripcion: 'Fomentar la productividad del sector agrícola y apoyar a los pequeños productores.', icono: '🌾' },
+    { titulo: 'Lucha contra la Desnutrición Infantil', descripcion: 'Implementar políticas para erradicar la desnutrición crónica infantil.', icono: '🍎' },
+    { titulo: 'Generación de Empleo Digno', descripcion: 'Impulsar reformas para crear más y mejores empleos.', icono: '💼' },
   ];
 
-  biografia = 'Soy una líder comprometida con el bienestar de nuestra comunidad y con experiencia en gestión pública.';
-
+  // Información de contacto del formulario
   contacto = {
     nombre: '',
     email: '',
     mensaje: ''
   };
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  scrollToSection(sectionId: string): void {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+
+  // ✅ Método que se ejecuta cuando el componente se inicializa
+  ngOnInit(): void {
+    // Verifica si está en el navegador
+    if (isPlatformBrowser(this.platformId)) {
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+          preloader.classList.add('hidden');  // Oculta el preloader
+        }
+      });
     }
   }
 
+  // ✅ Función para enviar el formulario de contacto vía WhatsApp
   enviarFormulario(): void {
     if (this.contacto.nombre && this.contacto.mensaje) {
-      const numeroWhatsApp = '593986837291'; // 🔥 Número de WhatsApp con código de país (ejemplo: 593 para Ecuador)
+      const numeroWhatsApp = '593960927932';  // Número de WhatsApp (Ecuador)
       const mensaje = `Hola, soy ${this.contacto.nombre}. ${this.contacto.mensaje}`;
       const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-      window.open(url, '_blank'); // 🔥 Abre WhatsApp en una nueva pestaña
+      window.open(url, '_blank');  // Abre WhatsApp en una nueva pestaña
     } else {
       alert('Por favor, completa todos los campos.');
     }
   }
 
+  // ✅ Función para hacer scroll suave a una sección específica
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });  // Scroll suave
+    }
+  }
 }

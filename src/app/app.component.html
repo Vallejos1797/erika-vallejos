@@ -10,9 +10,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" routerLink="/propuestas">Propuestas</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/biografia">Biografía</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="scrollToSection('propuestas')">Propuestas</a></li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="scrollToSection('contacto')">Contacto</a>
+          </li>
+
         </ul>
       </div>
     </div>
@@ -25,15 +27,17 @@
       <!-- Columna Izquierda: Imagen y Nombre -->
       <div class="col-md-6 text-center text-md-start d-flex justify-content-center align-content-center flex-column">
         <img src="assets/EV-Pincipal.png" alt="Erika Vallejos" class="img-fluid mb-3" style="max-height: 52rem;">
-        <h1 class="mensaje-principal">Erika Vallejos</h1>
       </div>
 
       <!-- Columna Derecha: Información -->
-      <div class="col-md-6">
+      <div class="col-md-6 text-center mb-2">
+        <h1 class="mensaje-principal " style="margin: 80px">Erika Vallejos</h1>
+
         <div class="info-box p-4">
+
           <p>
 
-            Erika Elizabeth Vallejos Anrango, joven mujer, madre, y política comprometida, es un ejemplo de determinación y vocación de servicio. Con 30 años, Erika ha construido su vida sobre los valores fundamentales de humildad, gratitud y amor incondicional hacia su familia, pilares que inspiran cada paso en su camino.
+           Joven mujer, madre, y política comprometida, es un ejemplo de determinación y vocación de servicio. Con 30 años, Erika ha construido su vida sobre los valores fundamentales de humildad, gratitud y amor incondicional hacia su familia, pilares que inspiran cada paso en su camino.
 
 <!--            Nacida en una cuna política dentro del movimiento CREO, Erika ha dedicado años a su formación y profesionalización en el ámbito político. Este proceso no solo la ha dotado de conocimientos técnicos, sino que ha fortalecido su espíritu de trabajo en equipo y su compromiso con el bien común. A lo largo de su carrera, ha participado activamente en voluntariados, donde ha demostrado su capacidad para conectar con las necesidades de la gente y generar soluciones con empatía y responsabilidad.-->
 
@@ -46,7 +50,7 @@
 </section>
 
 <!-- 🔥 Mover la línea divisoria aquí, después de #inicio -->
-<div class="color-divider"></div>
+<div class="color-divider" style="margin-top: 80px"></div>
 
 <!-- Carrusel de imágenes con frases -->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="margin-top: 10%">
@@ -54,19 +58,37 @@
     <div class="carousel-item active">
       <img src="assets/Carrucel/1.jpg" class="d-block w-100" alt="Slide 1">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Frase Inspiradora 1</h5>
+        <h5>Jovenes Creo</h5>
       </div>
     </div>
     <div class="carousel-item">
       <img src="assets/Carrucel/2.jpg" class="d-block w-100" alt="Slide 2">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Frase Inspiradora 2</h5>
+        <h5>Líder</h5>
       </div>
     </div>
     <div class="carousel-item">
       <img src="assets/Carrucel/3.jpg" class="d-block w-100" alt="Slide 3">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Frase Inspiradora 3</h5>
+        <h5>Mujeres</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/Carrucel/4.jpg" class="d-block w-100" alt="Slide 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Compromiso</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/Carrucel/5.jpg" class="d-block w-100" alt="Slide 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Derechos</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/Carrucel/6.jpg" class="d-block w-100" alt="Slide 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Legado</h5>
       </div>
     </div>
   </div>
@@ -79,27 +101,33 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<div class="color-divider"></div>
 
 <section id="propuestas" class="py-5 container">
-  <h2 class="text-center mb-4">Propuestas</h2>
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let propuesta of propuestas">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title">{{ propuesta.titulo }}</h5>
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <!-- Ícono de la propuesta -->
+          <div class="icon mb-3" style="font-size: 48px; color: #1a428a;">
+            {{ propuesta.icono }}
+          </div>
+          <!-- Título de la propuesta -->
+          <h5 class="card-title fw-bold">{{ propuesta.titulo }}</h5>
+          <!-- Descripción de la propuesta -->
           <p class="card-text">{{ propuesta.descripcion }}</p>
+          <!-- Botón opcional para ampliar información -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
+<div class="color-divider"></div>
 
 <section id="contacto" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Contáctanos</h2>
+    <h2 class="text-center mb-4">Estoy aquí para escucharte y actuar</h2>
     <form (ngSubmit)="enviarFormulario()" class="w-75 mx-auto">
       <div class="mb-3">
         <input type="text" class="form-control" placeholder="Tu nombre" [(ngModel)]="contacto.nombre" name="nombre" required>
@@ -115,3 +143,7 @@
 <footer class="footer  text-white text-center py-3" style="background: linear-gradient(to left, #ffffff, #1a428a);">
   <p>&copy; 2025 Elizabeth Vallejos. Todos los derechos reservados {{ '@BlueDemon' }}.</p>
 </footer>
+
+<div id="preloader">
+  <img src="assets/creo-r.png" alt="Cargando..." class="logo">
+</div>
